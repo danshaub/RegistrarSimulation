@@ -52,12 +52,22 @@ void GenQueue<T>::insert(T d){
 
 template<class T>
 T GenQueue<T>::remove(){
+    if(size == 0){
+        cerr << "Tried to remove from an empty queue\n";
+        exit(EXIT_FAILURE);
+    }
+
     numElements--;
     return myQueue->removeFront();
 }
 
 template<class T>
 T GenQueue<T>::front(){
+    if(size == 0){
+        cerr << "Tried to see front of an empty queue\n";
+        exit(EXIT_FAILURE);
+    }
+    
     return myQueue->getFront();
 }
 
