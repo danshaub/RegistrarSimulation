@@ -19,17 +19,23 @@ class GenQueue{
         GenQueue();
         ~GenQueue();
 
+        //inserts at the back of the queue
         void insert(T d);
+        //removes from the front of the queue
         T remove();
+        //returns the front object without removing it from the queue
         T front();
 
+        //returns the number of elements in the queue
         int getSize();
+        //returns true if the queue is empty
         bool isEmpty();
+        //prints the queue in array format
         void printQueue();
     
     private:
+        //List that contains queue elements
         GenDoublyLinkedList<T> *myQueue;
-
         int numElements;
 };
 
@@ -52,6 +58,7 @@ void GenQueue<T>::insert(T d){
 
 template<class T>
 T GenQueue<T>::remove(){
+    //protects against removing from an empty queue
     if(size == 0){
         cerr << "Tried to remove from an empty queue\n";
         exit(EXIT_FAILURE);
@@ -63,6 +70,7 @@ T GenQueue<T>::remove(){
 
 template<class T>
 T GenQueue<T>::front(){
+    //protects against referencing the front of an empty queue
     if(size == 0){
         cerr << "Tried to see front of an empty queue\n";
         exit(EXIT_FAILURE);
