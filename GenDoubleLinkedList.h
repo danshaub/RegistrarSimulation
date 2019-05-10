@@ -108,10 +108,12 @@ GenDoublyLinkedList<T>::~GenDoublyLinkedList(){
 template<class T>
 void GenDoublyLinkedList<T>::insertFront(T d){
     GenDoubleListNode<T> *node = new GenDoubleListNode<T>(d);
-        if(size == 0){
+    //if this is the first element, set it to the front and the back
+    if(size == 0){
         front = node;
         back = node;
     }
+    //otherwise set new element to point to the front and set front to the new node
     else{
         node->next = front;       
         front->prev = node;
