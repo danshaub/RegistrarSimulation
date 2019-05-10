@@ -59,7 +59,7 @@ void GenQueue<T>::insert(T d){
 template<class T>
 T GenQueue<T>::remove(){
     //protects against removing from an empty queue
-    if(size == 0){
+    if(numElements == 0){
         cerr << "Tried to remove from an empty queue\n";
         exit(EXIT_FAILURE);
     }
@@ -71,7 +71,7 @@ T GenQueue<T>::remove(){
 template<class T>
 T GenQueue<T>::front(){
     //protects against referencing the front of an empty queue
-    if(size == 0){
+    if(numElements == 0){
         cerr << "Tried to see front of an empty queue\n";
         exit(EXIT_FAILURE);
     }
